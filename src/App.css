@@ -1,6 +1,23 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    height: auto;
+}
+.App__title{
+ margin: 1rem;
+ padding: 1rem;
+}
+.App-btn{
+    font-size: 1.5rem;
+    color: white;
+    padding: .5em 1em;
+    background-color: #555A88;
+    margin: 1rem;
+}
 .form-container{
     position: fixed;
     width: 100%;
+    max-width: 1200px;
     min-height: 100vh;
     background-color: #0002;
     z-index: 100;
@@ -12,15 +29,9 @@
     
 }
 .close__form{
-    
-  transform: translateX(-100%); 
-}
-.App-btn{
-    font-size: 1.5rem;
-    color: white;
-    padding: .5em 1em;
-    background-color: #555A88;
-    margin: 1rem;
+    display: none;
+  /* transform: translateX(-100%);  */
+  
 }
 .user-container{
     display: flex;

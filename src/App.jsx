@@ -20,8 +20,11 @@ function App() {
   
   return (
     <div className="App">
-      <h1>Users</h1>
+      <header className='header'>
+      <h1 className='App__title'>Users</h1>
       <button onClick={ () => setCloseForm(false)} className='App-btn' > Open Form</button>
+
+      </header>
       <div className={`form-container ${ (closeForm &&'close__form')||( openForm && 'close__form') }`}>
         <FormUser
           createNewUser={createNewUser}

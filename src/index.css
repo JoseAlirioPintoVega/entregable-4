@@ -25,3 +25,11 @@ button{
 input{
     outline: 0;
 }
+html{
+    background-color: white;
+    max-width: 100vw;
+}
+body{
+    max-width: 1200px;
+    margin: auto;
+}
