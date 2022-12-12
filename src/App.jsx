@@ -2,11 +2,15 @@ import { useState } from 'react'
 import axios from 'axios'
 import './App.css'
 import { useEffect } from 'react'
-import FormUser from './assets/components/FormUser'
-import UserCard from './assets/components/UserCard'
 import useCrud from './hooks/useCrud'
+import UserCard from './components/UserCard'
+import FormUser from './components/FormUser'
 
 function App() {
+
+  const [closeForm, setCloseForm] = useState(true)
+  const [openForm, setOpenForm] = useState(false)
+
  const {users, createNewUser, updateUserById, deleteUserById, getAllUsers} = useCrud()
  const [updateInfo, setUpdateInfo] = useState()
 
@@ -16,14 +20,18 @@ function App() {
   
   return (
     <div className="App">
-      <h1>User</h1>
-      <button>Open Form</button>
-      <FormUser
-      createNewUser={createNewUser}
-      updateInfo={updateInfo}
-      updateUserById={updateUserById}
-      setUpdateInfo={setUpdateInfo}
-      />
+      <h1>Users</h1>
+      <button onClick={ () => setCloseForm(false)} className='App-btn' > Open Form</button>
+      <div className={`form-container ${ (closeForm &&'close__form')||( openForm && 'close__form') }`}>
+        <FormUser
+          createNewUser={createNewUser}
+          updateInfo={updateInfo}
+          updateUserById={updateUserById}
+          setUpdateInfo={setUpdateInfo}
+          setCloseForm={setCloseForm}
+        />
+      </div>
+      
       <div className='user-container'>
         {
           users?.map(user=>(
@@ -32,6 +40,7 @@ function App() {
              user={user}
              deleteUserById={deleteUserById}
              setUpdateInfo={setUpdateInfo}
+             setOpenForm={setOpenForm}
               />
           ))
         }
